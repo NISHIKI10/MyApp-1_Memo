@@ -1,0 +1,24 @@
+<h1>メモの編集</h1>
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>注意！！</strong> メモの内容は140文字を越えると、更新されません！
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<%= form_with model: @memo do |form|%>
+  <div class="form-group">
+    <%= form.label :title, 'タイトル'%>
+    <p><%= form.text_field :title, class: 'form-control'%></p>
+  </div>
+  <div class="form-group">
+    <%= form.label :content, '内容'%>
+    <p><%= form.text_area :content, class: 'form-control'%></p>
+  </div>
+  <div class="text-center">
+    <%= form.submit '更新する', class: 'btn btn-primary'%>
+  </div>
+<% end %>
+
+ <%= link_to '一覧へ', memos_path %>

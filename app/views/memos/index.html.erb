@@ -1,0 +1,16 @@
+<h1>メモ一覧</h1>
+<%= link_to '新しく投稿する', new_memo_path, class: 'btn btn-success'%>
+
+<% @memos.each do |memo| %>
+
+  <div class="card top" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= memo.title %></h5>
+      <p class="card-text fontc"><%= memo.content %></p>
+      <%= link_to '編集', edit_memo_path(memo.id) %>
+      <%= link_to '削除', memo_path(memo.id), method: :delete %>
+      <%= link_to '詳細', memo_path(memo.id) %>
+    </div>
+  </div>
+
+<% end %>
